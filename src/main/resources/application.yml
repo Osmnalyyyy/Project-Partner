@@ -1,0 +1,64 @@
+
+server:
+  port:  8080
+  error:
+    include-binding-errors: always
+    include-message: always
+    include-stacktrace: never
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smd_db
+    username: smd_db
+    password: smd_db
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      '[hibernate.format_sql]': true
+  #image
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+logging:
+  file:
+    name: log/projektpartner.log
+  pattern:
+    file: "%d %-5level [%thread]  %logger:%msg%n"
+  level:
+    '[org.springframework.web]': WARN
+    '[org.hibernate]': INFO
+    '[org.projektpartner]': DEBUG
+
+management: #actuator
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled:  true
+
+  projektpartner:
+    app:
+      jwtSecret: ProjektPartner12032023CeAlDeScproSaLSaUlIsAkReKacVReJaSpraAxkTePlAem4t3pcmUizdEpLuYasXkUe
+      jwtExpirationMS: 86400000
+
+info:
+  application:
+    name: 'Projekt Partner Backend App'
+    description: 'This is Projekt Partner Backend Project'
+    version: '@project.version@'
+
