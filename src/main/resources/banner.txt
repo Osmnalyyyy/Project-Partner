@@ -5,4 +5,4 @@
 `    `    `---'    |`---'`---'`---'    `    `---^`    `---'`   '`---'`
                `---'
 
- THIS APPLICATION DEVELOPED BY OSMAN ALI SEVINC
+CREATED BY OSMAN ALI SEVINC
